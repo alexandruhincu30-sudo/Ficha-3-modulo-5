@@ -1,0 +1,36 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include "EntreAB.h"
+
+
+struct tag_aluno{
+	char num_aluno[8];
+	char modulo [2];
+	double media;
+	int  qtd_choco;
+};
+
+int main()
+{
+
+	struct tag_aluno alunos[28];
+	int op,i=0,idx=0;
+	printf("Ola seja bem vindo ao menu\n");
+		do{
+			printf("Opcao 1-Inserir numero aluno,se tem modulos em atraso e o valor da media")
+
+
+return 0; 
+}
+
+#pragma once
+
+int EntreAB(int min, int max, int valor)
+{
+	if (valor >= min && valor <= max)
+		return 1;
+
+	return 0;
+}
+
+
