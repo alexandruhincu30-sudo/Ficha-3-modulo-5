@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include "Entre.AB.h"
+#include "Verif.h"
 
 
 struct tag_aluno{
@@ -13,30 +13,85 @@ struct tag_aluno{
 int main()
 {
 
-	struct tag_aluno alunos[28];
-	int op,i=0,idx=0;
+	struct tag_aluno alunos[27];
+	int op,i=0,idx=0,qtd_alunos;
 	printf("Ola seja bem vindo ao menu\n");
 		do{
+			do{
 			printf("Opcao 1-Inserir numero aluno,se tem modulos em atraso e o valor da media\n");
 			printf("Opcao 2-Preencher automaticamente o campo do prémio de cada aluno presente na lista\n");
 			printf("Opcao 3-Mostrar o numero de alunos e a quantidade de chocolates que cada um ira receber\n");
 			printf("Opcao 4-Mostrar o número do(s) aluno(s) com mais chocolates de prémio\n");
-			printf("Opcao 5-
+			printf("Opcao 5-Percentagem de alunos com media  acima do valor aceitavel(13)\n");
 			printf("INSERE A OPCAO:");
 			scanf("%d",&op);
+			if(EntreAB(1, 5, op)==0)
+				printf("O valor inserido e' invalido\n");
 
+			}while(EntreAB(1, 5, op)==0);
+			switch (op) {
+
+			case 1:
+				do {
+				printf("Insere o numero de aluno: ");
+					scanf("%s",alunos[i].num_aluno);
+					if(verif_string(alunos[i].num_aluno)==0)
+						printf("O numero inserido e' invalido\n");
+
+				}while(verif_string(alunos[i].num_aluno)==0);
+				do {
+				printf("Tem modulos em atraso ? :  ");
+					scanf("%c",alunos[i].modulo);
+					if(verif_string(alunos[i].num_aluno)==0)
+						printf("A letra inserido e' invalido\n");
+
+				}while(verif_string(alunos[i].num_aluno)==0);
+				do {
+					printf(" Insere o valor da media: ");
+					scanf("%lf",alunos[i].media);
+					if(
+				i++;
+				break;
+			}
+		}while(op!=0);
 
 return 0; 
 }
 
 #pragma once
-
 int EntreAB(int min, int max, int valor)
 {
 	if (valor >= min && valor <= max)
 		return 1;
-
+	else
 	return 0;
 }
 
+int verif_string(char *texto)
+{
+    int quantidade = 0;
+
+    for (int i = 0; texto[i] != '\0'; i++)
+    {
+        if (texto[i] >= '0' && texto[i] <= '9')
+            quantidade++;
+    }
+
+    if (quantidade == 6)
+        return 1;
+    else
+        return 0;
+}
+
+int verif_char(char modulo)
+{
+    if (modulo != 'S' && modulo != 'N')
+        return 0;
+    else
+        return 1;
+}
+
+double verif_media (double valor)
+{
+	if(valor
 
