@@ -1,13 +1,13 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include "Verif.h"
+#include "EntreAB.h"
 
 
 struct tag_aluno{
 	char num_aluno[8];
 	char modulo [2];
 	double media;
-	int  qtd_choco;
+	int premio=-1;
 };
 
 int main()
@@ -16,8 +16,8 @@ int main()
 	struct tag_aluno alunos[27];
 	int op,i=0,idx=0,qtd_alunos;
 	printf("Ola seja bem vindo ao menu\n");
+	do{
 		do{
-			do{
 			printf("Opcao 1-Inserir numero aluno,se tem modulos em atraso e o valor da media\n");
 			printf("Opcao 2-Preencher automaticamente o campo do prémio de cada aluno presente na lista\n");
 			printf("Opcao 3-Mostrar o numero de alunos e a quantidade de chocolates que cada um ira receber\n");
@@ -28,36 +28,52 @@ int main()
 			if(EntreAB(1, 5, op)==0)
 				printf("O valor inserido e' invalido\n");
 
-			}while(EntreAB(1, 5, op)==0);
-			switch (op) {
+		}while(EntreAB(1, 5, op)==0);
+		switch (op) {
 
-			case 1:
-				do {
+		case 1:
+			do {
 				printf("Insere o numero de aluno: ");
-					scanf("%s",alunos[i].num_aluno);
-					if(verif_string(alunos[i].num_aluno)==0)
-						printf("O numero inserido e' invalido\n");
+				scanf("%s",alunos[i].num_aluno);
+				if(verif_string(alunos[i].num_aluno)==0)
+					printf("O numero inserido e' invalido\n");
 
-				}while(verif_string(alunos[i].num_aluno)==0);
-				do {
+			}while(verif_string(alunos[i].num_aluno)==0);
+			do {
 				printf("Tem modulos em atraso ? :  ");
-					scanf("%c",alunos[i].modulo);
-					if(verif_string(alunos[i].num_aluno)==0)
-						printf("A letra inserido e' invalido\n");
+				fflush(stdin);
+				scanf("%c",alunos[i].modulo);
+				if(verif_string(alunos[i].num_aluno)==0)
+					printf("A letra inserido e' invalido\n");
 
-				}while(verif_string(alunos[i].num_aluno)==0);
-				do {
-					printf(" Insere o valor da media: ");
-					scanf("%lf",alunos[i].media);
-					if(
-				i++;
-				break;
-			}
-		}while(op!=0);
+			}while(verif_string(alunos[i].num_aluno)==0);
+			do {
+				printf(" Insere o valor da media: ");
+				scanf("%lf",alunos[i].media);
+				if(verif_media (alunos[i].media)==0)
+					printf("O valor inserido e' invalido");
+			}while(verif_media (alunos[i].media)==0);
+		
+			i++;
+			qtd_alunos++;
+			
+			break;
+		case 2:
+			if(qtd_alunos!=0)
+			{
+				for(idx=0;idx<=qtd_alunos;)
+				{
+					for(i=1;i<29;i++)
+					{
+						if(aluno[i].
+		}
+		
 
-return 0; 
+	}while(op!=0);
+
+	return 0; 
 }
-
+-------------------------------------------------------------------------------------------------------------------------------------
 #pragma once
 int EntreAB(int min, int max, int valor)
 {
@@ -93,5 +109,9 @@ int verif_char(char modulo)
 
 double verif_media (double valor)
 {
-	if(valor
+	if(valor<0||valor>20)
+		return 0;
+	else 
+		return 1;
+}
 
