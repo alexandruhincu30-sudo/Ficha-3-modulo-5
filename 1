@@ -53,26 +53,37 @@ int main()
 				if(verif_media (alunos[i].media)==0)
 					printf("O valor inserido e' invalido");
 			}while(verif_media (alunos[i].media)==0);
-		
+
 			i++;
 			qtd_alunos++;
-			
-			break;
+
 		case 2:
-			if(qtd_alunos!=0)
+			if(qtd_alunos != 0)
 			{
-				for(idx=0;idx<=qtd_alunos;)
+				for(idx=0;idx<=qtd_alunos;idx++)
 				{
-					for(i=1;i<29;i++)
+					for(i = 0; i <=28;)
 					{
-						if(aluno[i].
-		}
-		
+						if(SouN(alunos[i].modulo)==0)   
+						{
+							alunos[i].premio =((alunos[i].media * alunos[i].media) / 4);
+							idx++;
+						}
+					}
+				}
+				i++;
+			}
+			else
+			{
+				printf("Nao existem alunos registados.\n");
+			}
+			break;
 
-	}while(op!=0);
+		}while(op!=0);
 
-	return 0; 
-}
+		return 0; 
+	}
+
 -------------------------------------------------------------------------------------------------------------------------------------
 #pragma once
 int EntreAB(int min, int max, int valor)
